@@ -1,0 +1,24 @@
+apiVersion: apps/v1
+kind: Deployment
+
+metadata:
+  name: fee-payment-service
+
+spec:
+  replicas: 1
+
+  selector:
+    matchLabels:
+      app: fee-payment-service
+
+  template:
+    metadata:
+      labels:
+        app: fee-payment-service
+
+    spec:
+      containers:
+      - name: payment-container
+        image: nginx
+        ports:
+        - containerPort: 80
